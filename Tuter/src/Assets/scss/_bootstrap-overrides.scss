@@ -1,0 +1,53 @@
+a {
+  color: yellow;
+  &:hover,
+  &:focus,
+  &:active {
+    color: darken(yellow, 10%);
+  }
+}
+
+.btn-primary {
+  background-color: gold !important;
+  border-color: yellow !important;
+  color: black !important;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: darken(yellow, 10%) !important;
+    border-color: darken(yellow, 10%) !important;
+  }
+}
+
+.btn-secondary {
+  background-color:black !important;
+  border-color:black !important;
+  color: white !important;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: darken(black, 10%) !important;
+    border-color: darken(black, 10%) !important;
+  }
+}
+
+.btn-dark {
+  color: white !important;
+}
+
+.btn {
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.1);
+  font-weight: 700;
+}
+
+.bg-primary {
+  background-color: yellow !important;
+}
+
+.text-primary {
+  color: black !important;
+}
+
+.text-secondary {
+  color:black !important;
+}

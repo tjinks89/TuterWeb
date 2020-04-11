@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import Header from "../Components/Header";
-import Navigation from "../Components/Navigation";
-import Footer from '../Components/Footer';
-
+// import Footer from '../Components/Footer';
 
 class Home extends Component 
 {
@@ -10,10 +8,9 @@ class Home extends Component
     {
         return(
             <div>
-              <Navigation/>
               <Header/>
-
-                    <section class="content-section bg-light" id="about">
+              
+                    {/* <section class="content-section bg-light" id="about">
                       <div class="container text-center">
                         <div class="row">
                           <div class="col-lg-10 mx-auto">
@@ -149,9 +146,8 @@ class Home extends Component
                         <a href="#" class="btn btn-xl btn-light mr-4">Click Me!</a>
                         <a href="#" class="btn btn-xl btn-dark">Look at Me!</a>
                       </div>
-                    </section>
+                    </section> */}
 
-                <Footer/>
                 
             </div>    
         )
