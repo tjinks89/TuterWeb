@@ -6,9 +6,7 @@ class Footer extends Component
     {
         return(
         <footer class="footer text-center">
-            <div class="container">
-              <p class="text-muted small mb-0">Copyright &copy; Tuter 2020</p>
-            </div>
+
         </footer>
         )
     }
