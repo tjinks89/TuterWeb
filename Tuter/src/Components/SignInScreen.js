@@ -6,10 +6,12 @@ import * as firebaseui from 'firebaseui';
 
 // Configure Firebase.
 const config = {
-    apiKey: "AIzaSyAnzm1921Uwhz1pvSpcbnVpCu-qQt_iKLg",
-    authDomain: "large-project-cop4331.firebaseapp.com",
-    databaseURL: "https://large-project-cop4331.firebaseio.com",
-    storageBucket: "large-project-cop4331.appspot.com",
+    // IMPORTANT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // Enter our config info here, unsecure to have this info on GitHub:
+    // apiKey: "",
+    // authDomain: "",
+    // databaseURL: "",
+    // storageBucket: "",
 };
 firebase.initializeApp(config);
 
