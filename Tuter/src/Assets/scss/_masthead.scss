@@ -10,8 +10,8 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  h1 {
-    font-size: 4rem;
+  h1{
+    font-size: larger;
     margin: 0;
     padding: 0;
   }
@@ -28,8 +28,6 @@
 }
   @media (min-width: 992px) {
     height: 100vh;
-    h1 {
-      font-size: 5.5rem;
-    }
+
   }
 }

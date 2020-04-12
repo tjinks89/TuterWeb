@@ -1,19 +1,27 @@
 import React, { Component } from "react";
 import Logo from '../Assets/img/Logo.png';
+import SignInScreen from "./SignInScreen";
+
 
 class Header extends Component 
 {
+    
     render() 
     {
-        return(
-            <header class="masthead d-flex">
+        return(            
+            
+
+            <div class="masthead d-flex">
+                
                 <div class="container text-center my-auto">
                     <img src={Logo} alt="Tuter Logo"/>
                     <h3 class="mb-5">
                         <em>Where it pays to be smart</em>
                     </h3>
+                    <SignInScreen/>
+                    
 
-                    <div class="form">
+                    {/* <div class="form">
                         <form>
                             <input type="text" class="form-control text-center my-auto" id="loginName" placeholder="Username" /><br/>
                             <input type="password" class="form-control text-center my-auto" id="loginPassword" placeholder="Password"/><br/>
@@ -21,12 +29,13 @@ class Header extends Component
                                 <a class="btn btn-primary btn-m js-scroll-trigger" href="#about">Log in</a>
                             </div>
                         </form>
-                    </div>
+                    </div> */}
                     <p class="text-muted small mb-0">Copyright &copy; Tuter 2020</p>
                 <div class="overlay"></div>
                 </div>
                 
-            </header>
+            </div>
+ 
         )
     }
 } export default Header;
