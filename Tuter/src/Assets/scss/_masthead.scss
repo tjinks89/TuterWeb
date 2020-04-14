@@ -10,6 +10,8 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  display: block;
+  text-align: center;
   h1{
     font-size: larger;
     margin: 0;
@@ -21,6 +23,8 @@
   .form {
     display: block;
     text-align: center;
+    padding-top: 2rem;
+    padding-left: 35rem;
   }
   .form-control{
     display: inline-block;

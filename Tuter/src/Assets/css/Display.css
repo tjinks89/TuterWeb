@@ -45,6 +45,7 @@ html{
   }
   
   .notesBody {
+    background-color: #F4B350;
     padding-top: 24px;
     display: flex;
     flex: 1 1 85%;

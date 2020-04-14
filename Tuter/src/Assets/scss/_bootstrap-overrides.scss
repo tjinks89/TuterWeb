@@ -8,14 +8,14 @@ a {
 }
 
 .btn-primary {
-  background-color: gold !important;
+  background-color: black!important;
   border-color: yellow !important;
-  color: black !important;
+  color: gray !important;
   &:hover,
   &:focus,
   &:active {
-    background-color: darken(yellow, 10%) !important;
-    border-color: darken(yellow, 10%) !important;
+    background-color: darken(gold, 10%) !important;
+    border-color: darken(black, 10%) !important;
   }
 }
 

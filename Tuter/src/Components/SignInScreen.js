@@ -5,48 +5,30 @@ import firebase from 'firebase';
 import * as firebaseui from 'firebaseui';
 import { DB_CONFIG } from '../fire';
 import Note from '../Components/Note';
-import '../Assets/css/Note.css';
+import '../Assets/css/Note.css'
 import Nav from './Nav';
 require("firebase/firestore");
 
-
 firebase.initializeApp(DB_CONFIG);
 
-  //Get a reference to the storage service, which is used to create references in your storage bucket
-  const storage = firebase.storage();
-  // Create a storage reference from our storage service
-  const storageRef = storage.ref();
-  // Create a child reference
-  const imagesRef = storageRef.child('Transcripts');
-  //imagesRef now points to 'images'
-  
-  var names = [];
-  imagesRef.listAll().then(function(res) {  
-    res.items.forEach(function(itemRef) {
-        // itemRef.getMetadata().then(function(metadata) {
-          names.push(itemRef);
-          console.log(itemRef.name);
-          // Metadata now contains the metadata for 'images/forest.jpg'
-        });
-      }).catch(function(error) {
-          console.log(error);
-          // Uh-oh, an error occurred!
-        });
-  // var transcript = names.entries;
-  // for (tra)
-  // console.log(names);
-    
+const db = firebase.firestore();
+
+const docRef = db.collection("Tutors").where("verified", "==", false);
+
 
 class SignInScreen extends React.Component {
   
   constructor(props)
   {
     super(props);
+    this.removeNote = this.removeNote.bind(this);
+    // this.app = firebase.initializeApp(DB_CONFIG);
+     this.database = db.collection("Tutors");
       
       //setup the React state of our component
       this.state =
       {
-        Images: names,
+        Tutors: [],
       }
   }
 
@@ -76,9 +58,36 @@ class SignInScreen extends React.Component {
     }
   };
 
+
+  componentWillMount()
+  {
+    const previousTutors = this.state.Tutors;
+
+    docRef.onSnapshot(function(querySnapshot) 
+    {
+      querySnapshot.forEach(function(doc) 
+      {
+        console.log(doc.data().key);
+        previousTutors.push(
+        {
+          id: doc.id,
+          email: doc.data().email,
+          firstName: doc.data().firstName,
+          lastName: doc.data().lastName,
+          major: doc.data().major,
+        })
+      });
+    });
+    console.log(previousTutors);
+    this.setState({
+      Tutors: previousTutors
+    }) 
+
+  }
   // Listen to the Firebase Auth state and set the local state.
   componentDidMount() 
   {
+    
     this.unregisterAuthObserver = firebase.auth().onAuthStateChanged(
         (user) => this.setState({isSignedIn: !!user}) );
     
@@ -87,6 +96,11 @@ class SignInScreen extends React.Component {
   // Make sure we un-register Firebase observers when the component unmounts.
   componentWillUnmount() {
     this.unregisterAuthObserver();
+  }
+
+  removeNote(noteId){
+    console.log("from the parent: " + noteId);
+    this.database.doc(noteId).delete();
   }
 
   render() {
@@ -99,28 +113,28 @@ class SignInScreen extends React.Component {
     }
 
     return (
-      // <div>
-      //   <Nav/>
-      // </div>
     <div>
       
-      <div className="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <button type="button" id="SearchButton" className="btn btn-link btn-sm order-1 order-lg-0"  >Unverified Transcripts</button>
-        <button type="button" id="SearchButton" className="btn btn-link btn-sm order-1 order-lg-0"  >Verify Tutor</button>
-        <button type="button" id="SearchButton" className="btn btn-link btn-sm order-1 order-lg-0" onClick={() => firebase.auth().signOut()}>Sign-out</button>
-      </div>
+      {/* <div className="sb-topnav navbar navbar-expand navbar-dark bg-dark"> */}
+        {/* <button type="button" id="SearchButton" className="btn btn-link btn-sm order-1 order-lg-0"  >Unverified Transcripts</button> */}
+        <button type="button" className="btn-primary btn-link btn-sm order-1 order-lg-0"  >Verify Tutor</button>
+        <button type="button" id="SearchButton" className="btn-primary btn-link btn-sm order-1 order-lg-0" onClick={() => firebase.auth().signOut()}>Sign-out</button>
+      {/* </div> */}
 
       <div className="notesWrapper">
         <div className="notesHeader">
-          <div className="heading">New Transcripts</div>
+          <div className="heading">Unverified Tutors</div>
         </div>
         <div className="notesBody">
           {
-            this.state.Images.map((note) => {
+            this.state.Tutors.map((note) => {
               return (
-                <Note ImageArray={note.ImageArray} 
-                noteId={note.id} 
-                key={note.id} 
+                <Note email={note.email} 
+                noteId={note.id}
+                key={note.id}
+                firstName={note.firstName} 
+                lastName={note.lastName}
+                major={note.major} 
                 removeNote ={this.removeNote}/>
               )
             })

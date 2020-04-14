@@ -1,4 +1,5 @@
 .note {
+    position: relative;
     padding:10px 10px 38px 34px;
     height: auto; 
     margin: auto;
@@ -6,8 +7,8 @@
     width: 60%;
     font-family: 'Lato', sans-serif;
     font-size: 1.4em;
-    color: #222;
-    background-color: #eed; 
+    color: white;
+    background-color: black; 
     border-radius: 3px;
     box-shadow: 43x 3px 2px #333;
     opacity: 1;
@@ -21,6 +22,24 @@
       animation:fadeIn ease-in 1;
       animation-fill-mode:forwards;
       animation-duration: 0.1s;
+  }
+
+  /* .notesWrapper {
+    background-color: gold;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    height: 100%;
+  } */
+
+  .notesBody {
+    padding-top: 24px;
+    display: flex;
+    flex: 1 1 85%;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    overflow: auto;
   }
   
   .noteContent{
