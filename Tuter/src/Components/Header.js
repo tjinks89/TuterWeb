@@ -11,16 +11,16 @@ class Header extends Component
         return(            
             
 
-            <div class="masthead d-flex">
+            <div className="masthead d-flex">
                 
-                <div class="container text-center my-auto">
+                <div className="container text-center my-auto">
                     <img src={Logo} alt="Tuter Logo"/>
-                    <h3 class="mb-5">
+                    <h3 className="mb-5">
                         <em>Where it pays to be smart</em>
                     </h3>
                     <SignInScreen/>
                     
-                <div class="overlay"></div>
+                <div className="overlay"></div>
                 </div>
                 
             </div>

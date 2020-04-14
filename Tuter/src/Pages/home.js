@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Header from "../Components/Header";
+import Logo from '../Assets/img/Logo.png';
+import SignInScreen from "../Components/SignInScreen";
 
 
 class Home extends Component 
@@ -7,9 +8,18 @@ class Home extends Component
     render() 
     {
         return(
-            <div>
-              <Header/>
-                   
+            <div className="masthead d-flex">
+                
+                <div className="container text-center my-auto">
+                    <img src={Logo} alt="Tuter Logo"/>
+                    <h3 className="mb-5">
+                        <em>Where it pays to be smart</em>
+                    </h3>
+                    <SignInScreen/>
+                    
+                <div className="overlay"></div>
+                </div>
+                
             </div>    
         )
     }

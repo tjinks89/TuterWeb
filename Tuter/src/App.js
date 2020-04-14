@@ -21,6 +21,9 @@ function App()
         <Switch>
           <Route exact path='/' component={home}/>
         </Switch>
+        {/* <Switch>
+          <Route exact path='/' component={Admin}/>
+        </Switch> */}
       </Router>
       
     </div>
